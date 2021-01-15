@@ -18,7 +18,7 @@ export default class CommentsController {
   }
   getComments() {
     try {
-      commentsService.getPosts()
+      commentsService.getComments()
     } catch (error) {
       console.error(error)
     }

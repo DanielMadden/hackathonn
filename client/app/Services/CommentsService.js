@@ -1,6 +1,6 @@
 import { ProxyState } from "../AppState.js"
 import { api } from "../Services/AxiosService.js"
-import { Comment } from "../Models/Post.js"
+import { Comment } from "../Models/Comment.js"
 
 class CommentsService {
   async getPosts() {
@@ -9,7 +9,7 @@ class CommentsService {
   async addPost(newPost) {
 
   }
-  async
+
 }
 
 export const commentsService = new CommentsService()

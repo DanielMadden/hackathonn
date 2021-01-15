@@ -9,7 +9,7 @@ class PostsService {
   async addPost(newPost) {
 
   }
-  async
+
 }
 
 export const postsService = new PostsService()

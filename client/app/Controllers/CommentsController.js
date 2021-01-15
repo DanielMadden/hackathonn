@@ -22,7 +22,7 @@ export default class CommentsController {
       console.error(error)
     }
   }
-  addComments(id) {
+  addComment(id) {
     window.event.preventDefault()
     let form = window.event.target()
     let newComment = {
@@ -30,7 +30,7 @@ export default class CommentsController {
       postID: id
     }
     try {
-      commentsService.addComments(newComment)
+      commentsService.addComment(newComment)
     } catch (error) {
       console.error(error)
     }

@@ -7,7 +7,7 @@ export class Comment {
     this.postId = data.post
   }
   get Template() {
-    return `
+    return /*html*/`
     <div class="card p-3 container-fluid">
                     <span class="author comment-author">${this.author}</span>
                     <span class="comment-body">${this.body}</span>

@@ -24,7 +24,6 @@ export default class CommentsController {
   }
   addComment(id) {
     window.event.preventDefault()
-    console.log(`Here is the id: ${id}`)
     let form = window.event.target
     let newComment = {
       body: form['body'].value,

@@ -10,7 +10,7 @@ export class Post {
 
 
   get Template() {
-    return `
+    return /*html*/`
     <div class="card p-3 container-fluid">
                     <span class="author post-author">${this.author}</span>
                     <h3 class="title">${this.title}</h3>
@@ -21,7 +21,7 @@ export class Post {
                         <span class="amount-votes">${this.votes}</span>
                         <div class="comment-holder mr-3">
                             <span class="amount-comments">${this.comments}</span>
-                            <i class="fas fa-comment button-comment m-1"></i>
+                            <i class="fas fa-comment button-comment m-1" onclick="app.setCommentController.setPostId('${this.id}')" ></i>
                         </div>
                     </div>
                 </div>

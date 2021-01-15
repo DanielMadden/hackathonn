@@ -55,3 +55,4 @@ export class CommnetsController extends BaseController {
       next(error)
     }
   }
+}

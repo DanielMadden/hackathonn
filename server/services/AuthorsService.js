@@ -1,9 +1,11 @@
-class AuthorsService{
+import { dbContext } from "../db/DbContext";
+
+class AuthorsService {
   create(body) {
-    throw new Error("Method not implemented.");
+    return await dbContext.Posts.create(body)
   }
   delete(id, id) {
-    throw new Error("Method not implemented.");
+    const author = await dbContext.Posts.findOneAndRemove({ _id: id, author })
   }
   edit(body) {
     throw new Error("Method not implemented.");

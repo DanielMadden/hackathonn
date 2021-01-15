@@ -11,8 +11,8 @@ export class AuthorsController extends BaseController {
       .get('/:authorId', this.getById)
       // .get("/:authorId/Posts", this.getPosts)
       // .get("/:authorId/Comments", this.getComments)
+      // .put("/:id", this.edit)
       .post("", this.create)
-      .put("/:id", this.edit)
       .delete("/:id", this.delete)
   }
 
@@ -29,6 +29,23 @@ export class AuthorsController extends BaseController {
     try {
       let data = await authorsService.findById(req.params.id)
       res.send(data)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async create(req, res, next) {
+    try {
+      req.body.authorId = req.userInfo.id
+      res.send(await authorsService.create(req.body))
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async delete(req, res, next) {
+    try {
+      res.send(await authorsService.delete(req.params.id, req.userInfo.id))
     } catch (error) {
       next(error)
     }

@@ -2,7 +2,7 @@ import BaseController from '../utils/BaseController'
 import { Auth0Provider } from '@bcwdev/auth0provider'
 import { commentsService } from "../services/CommentsService"
 
-export class CommnetsController extends BaseController {
+export class CommentsController extends BaseController {
   constructor() {
     super('api/comments')
     this.router

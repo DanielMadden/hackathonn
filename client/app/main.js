@@ -9,7 +9,6 @@ class App {
   commentsController = new CommentsController();
   postsController = new PostsController();
   setCommentController = new SetCommentController();
-
 }
 
 window["app"] = new App();

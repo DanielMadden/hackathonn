@@ -24,13 +24,13 @@ export default class PostsController {
   }
   addPost() {
     window.event.preventDefault()
-    let form = window.event.target()
+    let form = window.event.target
     let newPost = {
       title: form['title'].value,
       body: form['body'].value
     }
     try {
-      postsService.addPost(post)
+      postsService.addPost(newPost)
     } catch (error) {
       console.error(error)
     }

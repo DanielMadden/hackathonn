@@ -28,7 +28,7 @@ export default class CommentsController {
     let form = window.event.target
     let newComment = {
       body: form['body'].value,
-      postID: id
+      postId: id
     }
     try {
       commentsService.addComment(newComment)

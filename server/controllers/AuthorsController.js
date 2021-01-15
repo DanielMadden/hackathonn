@@ -55,3 +55,4 @@ export class AuthorsController extends BaseController {
       next(error)
     }
   }
+}

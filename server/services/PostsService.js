@@ -19,7 +19,7 @@ class PostsService{
     const updatedPost = await dbContext.Post.findOneAndUpdate({_id: post.id, authorId: post.authorId}, post, {new: true}).populate('authorId')
   }
   async delete(id, id) {
-    throw new Error("Method not implemented.");
+    
   }
 
 }

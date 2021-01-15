@@ -1,4 +1,7 @@
 class AuthorsService{
+  create(body) {
+    throw new Error("Method not implemented.");
+  }
   delete(id, id) {
     throw new Error("Method not implemented.");
   }

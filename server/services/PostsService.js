@@ -1,15 +1,24 @@
+import { dbContext } from "../db/DbContext";
+import { BadRequest } from "../utils/Errors";
 
 class PostsService{
-  delete(id, id) {
-    throw new Error("Method not implemented.");
+  async getAll(query = {}) {
+    return await dbContext.Post.find(query)
   }
-  getById(id) {
-    throw new Error("Method not implemented.");
+  async create(body) {
+    return await dbContext.Post.create(body)
   }
-  edit(body) {
-    throw new Error("Method not implemented.");
+  async getById(id) {
+    const newPost = await dbContext.Post.findById(id)
+    if(!newPost){
+      throw new BadRequest
+    }
+    return newPost
   }
-  getAll(query) {
+  async edit(post) {
+    const updatedPost = await dbContext.Post.findOneAndUpdate({_id: post.id, authorId: post.authorId}, post, {new: true}).populate('authorId')
+  }
+  async delete(id, id) {
     throw new Error("Method not implemented.");
   }
 

@@ -22,11 +22,11 @@ class PostsService {
     }
     return updatedPost
   }
-  async delete(id, id) {
+
+  async delete() {
     const deleted = await dbContext.Post.findOneAndRemove({ _id: id, authorId: authorId })
     if (!deleted) {
       throw new BadRequest('You are not the creator, or this is not a valid post :(')
     }
   }
 }
-export const postsService = new PostsService()

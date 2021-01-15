@@ -1,9 +1,14 @@
 import { AuthController } from "./Controllers/AuthController.js";
-import ValuesController from "./Controllers/ValuesController.js";
+import CommentsController from "./Controllers/CommentsController.js";
+import PostsController from "./Controllers/PostsController.js";
+import SetCommentController from "./Controllers/SetCommentController.js";
+
 
 class App {
   authController = new AuthController();
-  valuesController = new ValuesController();
+  commentsController = new CommentsController();
+  postsController = new PostsController();
+  setCommentController = new SetCommentController();
 }
 
 window["app"] = new App();

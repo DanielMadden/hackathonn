@@ -2,7 +2,11 @@ import { ProxyState } from "../AppState.js"
 import { commentsService } from "../Services/CommentsService.js"
 
 function _drawComments() {
-
+  let comments = ProxyState.comments
+  let template = ''
+  comments.forEach(comment => {
+    template += comment.Template
+  })
 }
 
 export default class CommentsController {
@@ -12,15 +16,37 @@ export default class CommentsController {
     _drawComments()
   }
   getComments() {
-
+    try {
+      commentsService.getPosts()
+    } catch (error) {
+      console.error(error)
+    }
   }
-  addComments() {
-
+  addComments(id) {
+    window.event.preventDefault()
+    let form = window.event.target()
+    let newComment = {
+      body: form['body'].value,
+      postID: id
+    }
+    try {
+      commentsService.addComments(newComment)
+    } catch (error) {
+      console.error(error)
+    }
   }
-  deleteComment() {
-
+  deleteComment(id) {
+    try {
+      commentsService.deleteComment(id)
+    } catch (error) {
+      console.errir(error)
+    }
   }
-  voteComment() {
-
+  voteComment(id) {
+    try {
+      commentsService.voteComment(id)
+    } catch (error) {
+      console.error(error)
+    }
   }
 }

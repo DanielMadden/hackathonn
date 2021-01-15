@@ -4,6 +4,7 @@ export class Comment {
     this.body = data.body
     this.votes = data.votes
     this.id = data.id
+    this.postId = data.post
   }
   get Template() {
     return `

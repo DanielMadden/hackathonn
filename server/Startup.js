@@ -9,17 +9,17 @@ import { logger } from './utils/Logger'
 export default class Startup {
   static ConfigureGlobalMiddleware(app) {
     // NOTE Configure and Register Middleware
-    const whitelist = ['http://localhost:8080']
+    const whitelist = ['https://sickboiz-hackathon.herokuapp.com']
     const corsOptions = {
-      origin: function(origin, callback) {
+      origin: function (origin, callback) {
         const originIsWhitelisted = whitelist.indexOf(origin) !== -1
         callback(null, originIsWhitelisted)
       },
       credentials: true
     }
     app.use(helmet({
-        contentSecurityPolicy: false
-      }))
+      contentSecurityPolicy: false
+    }))
     app.use(cors(corsOptions))
     app.use(bp.json({ limit: '50mb' }))
 

@@ -1,26 +1,32 @@
 import { dbContext } from "../db/DbContext";
 import { BadRequest } from "../utils/Errors";
 
-class PostsService{
+class PostsService {
   async getAll(query = {}) {
-    return await dbContext.Post.find(query)
+    return await dbContext.Post.find(query).populate('posts')
   }
-  async create(body) {
-    return await dbContext.Post.create(body)
+  async create(post) {
+    return await dbContext.Post.create(post)
   }
   async getById(id) {
     const newPost = await dbContext.Post.findById(id)
-    if(!newPost){
-      throw new BadRequest
+    if (!newPost) {
+      throw new BadRequest("invalid id")
     }
     return newPost
   }
   async edit(post) {
-    const updatedPost = await dbContext.Post.findOneAndUpdate({_id: post.id, authorId: post.authorId}, post, {new: true}).populate('authorId')
-  }
-  async delete(postId, userId) {
-    
+    let updatedPost = await dbContext.Post.findOneAndUpdate({ _id: post.id, authorId: post.authorId }, post, { new: true }).populate('authorId')
+    if (!updatedPost) {
+      throw new BadRequest("invalid post")
+    }
+    return updatedPost
   }
 
+  async delete() {
+    const deleted = await dbContext.Post.findOneAndRemove({ _id: id, authorId: authorId })
+    if (!deleted) {
+      throw new BadRequest('You are not the creator, or this is not a valid post :(')
+    }
+  }
 }
-export const postsService = new PostsService()

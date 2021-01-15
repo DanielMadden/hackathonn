@@ -4,7 +4,8 @@ import { isValidProp } from './Utils/isValidProp.js'
 class AppState extends EventEmitter {
   user = {}
   account = {}
-  values = []
+  posts = []
+  comments = []
 }
 
 export const ProxyState = new Proxy(new AppState(), {

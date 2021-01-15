@@ -6,12 +6,12 @@ export class CommnetsController extends BaseController {
   constructor() {
     super('api/comments')
     this.router
-    .get('',this.getAll)
-    .use(Auth0Provider.getAuthorizedUserInfo)
-    .post('', this.create)
-    .get('/:id', this.getById)
-    .put(':/id', this.edit)
-    .delete('/:id', this.delete)
+      .get('', this.getAll)
+      .use(Auth0Provider.getAuthorizedUserInfo)
+      .post('', this.create)
+      .get('/:id', this.getById)
+      .put(':/id', this.edit)
+      .delete('/:id', this.delete)
   }
 
   async getAll(req, res, next) {

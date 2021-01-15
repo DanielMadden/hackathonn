@@ -1,0 +1,66 @@
+:root {
+  --bg-dark: #562c3d!important;
+  --bg-orange: #f6b849;
+  --bg-cream: #FBF6F0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--bg-orange)
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  top: 0;
+  left: 0;
+  background-color: var(--bg-dark);
+  color: white
+}
+
+main {
+  position: relative;
+  margin-top: 100px;
+}
+
+#logo {
+  display: inline-block;
+  /* width: 200px; */
+  font-family: 'Syncopate', sans-serif;
+}
+
+#button-login {
+  background-color: white;
+  color: black;
+}
+
+.post-buttons {
+  color: gray;
+  font-family: 'Roboto Slab', serif;
+}
+
+.button-upvote {}
+
+.comment-holder {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+}
+
+.button-comment {}
+
+.amount-votes {
+  font-weight: bold;
+}
+
+/* #authstate {
+  width: 100px;
+  position: absolute;
+  right: 0;
+  height: 100%;
+} */

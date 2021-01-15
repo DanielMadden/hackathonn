@@ -1,4 +1,118 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Top 10</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+
+    <!-- Logo Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/%22%3E">
+    <link href=" https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Amount Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="assets/style.css">
+
+</head>
+
+<body>
+
+    <header class="d-flex justify-content-between align-items-center">
+        <h1 id="logo" class="m-3">
+            <i class="fab fa-pied-piper-hat"></i>
+            Top 10
+        </h1>
+        <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
+    </header>
+    <main class="container-fluid">
+        <div class="row mx-5 px-5 pt-5 justify-content-between">
+            <div class="col-7">
+                <div class="card p-3 container-fluid">
+
+                    <span>Name</span>
+                    <h3>Title</h3>
+                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores numquam error, eaque amet,
+                        repudiandae obcaecati facilis tenetur deleniti cupiditate voluptas sequi eos. Delectus nisi
+                        voluptate dolore suscipit odio repellat magnam!</span>
+                    <div class="post-buttons mt-3">
+                        <i class="fas fa-chevron-up button-upvote m-1"></i>
+                        <i class="fas fa-chevron-down button-downvote m-1"></i>
+                        <span class="amount-votes">100000</span>
+                        <div class="comment-holder mr-3">
+                            <span class="amount-comments">10</span>
+                            <i class="fas fa-comment button-comment m-1"></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card p-3 container-fluid">
+
+                    <span>Name</span>
+                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores numquam error, eaque amet,
+                        repudiandae obcaecati facilis tenetur deleniti cupiditate voluptas sequi eos. Delectus nisi
+                        voluptate dolore suscipit odio repellat magnam!</span>
+                    <div class="post-buttons mt-3">
+                        <i class="fas fa-chevron-up button-upvote m-1"></i>
+                        <i class="fas fa-chevron-down button-downvote m-1"></i>
+                        <span class="amount-votes">100000</span>
+                        <div class="comment-holder mr-3">
+                            <span class="amount-comments">10</span>
+                            <i class="fas fa-comment button-comment m-1"></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+
+    <!-- Built into the node auth0 template -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/1.11/auth0-spa-js.production.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jakeoverall/auth0provider-client/browser/AuthProvider.browser.js"></script>
+
+    <!-- Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous"></script>
+
+    <!-- Module Javascript -->
+    <script src="app/main.js" type="module"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,7 +120,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="assets/style/main.css">
-    <title>client</title>
+    <title>Top 10</title>
 </head>
 
 <body>
@@ -60,4 +174,4 @@
     <script src="app/main.js" type="module"></script>
 </body>
 
-</html>
+</html> -->

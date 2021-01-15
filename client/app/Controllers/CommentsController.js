@@ -7,6 +7,7 @@ function _drawComments() {
   comments.forEach(comment => {
     template += comment.Template
   })
+  document.getElementById("comments").innerHTML = template
 }
 
 export default class CommentsController {

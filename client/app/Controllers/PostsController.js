@@ -7,6 +7,7 @@ function _drawPosts() {
   posts.forEach(post => {
     template += post.Template
   })
+  document.getElementById("posts").innerHTML = template
 }
 
 export default class PostsController {

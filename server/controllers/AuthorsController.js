@@ -36,7 +36,7 @@ export class AuthorsController extends BaseController {
 
   async create(req, res, next) {
     try {
-      req.body.authorId = req.userInfo.id
+      req.body.userId = req.userInfo.id
       res.send(await authorsService.create(req.body))
     } catch (error) {
       next(error)

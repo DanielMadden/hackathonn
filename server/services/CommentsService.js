@@ -1,19 +1,19 @@
 import { dbContext } from "../db/DbContext";
 
 class CommentsService {
-  create(body) {
+  async create(body) {
     return await dbContext.Comments.create(body)
   }
-  delete(id, id) {
+  async delete(id, id) {
     const comment = await dbContext.Comments.findOneAndRemove({ _id: id, comment })
   }
-  edit(body) {
+  async edit(body) {
     let updated = await dbContext.Comments.findOneAndUpdate({ _id: updated.id }, update, { new: true })
   }
-  getById(id) {
+  async getById(id) {
     let comment = await dbContext.Comments.findById(id)
   }
-  getAll(query) {
+  async getAll(query) {
     return await dbContext.Comments.findById(query)
   }
 

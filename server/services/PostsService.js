@@ -4,7 +4,7 @@ import { BadRequest } from "../utils/Errors";
 
 class PostsService {
   async getAll(query = {}) {
-    return await dbContext.Post.find(query).populate('posts')
+    return await dbContext.Post.find(query).populate('author')
   }
   async create(post) {
     return await dbContext.Post.create(post)

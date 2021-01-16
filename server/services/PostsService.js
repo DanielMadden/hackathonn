@@ -1,4 +1,5 @@
 import { dbContext } from "../db/DbContext";
+import Post from "../models/Post";
 import { BadRequest } from "../utils/Errors";
 
 class PostsService {
@@ -30,3 +31,5 @@ class PostsService {
     }
   }
 }
+
+export const postsService = new PostsService

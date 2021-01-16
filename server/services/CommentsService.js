@@ -1,18 +1,20 @@
-class CommentsService{
+import { dbContext } from "../db/DbContext";
+
+class CommentsService {
   create(body) {
-    throw new Error("Method not implemented.");
+    return await dbContext.Comments.create(body)
   }
   delete(id, id) {
-    throw new Error("Method not implemented.");
+    const comment = await dbContext.Comments.findOneAndRemove({ _id: id, comment })
   }
   edit(body) {
-    throw new Error("Method not implemented.");
+    let updated = await dbContext.Comments.findOneAndUpdate({ _id: updated.id }, update, { new: true })
   }
   getById(id) {
-    throw new Error("Method not implemented.");
+    let comment = await dbContext.Comments.findById(id)
   }
   getAll(query) {
-    throw new Error("Method not implemented.");
+    return await dbContext.Comments.findById(query)
   }
 
 }

@@ -1,19 +1,28 @@
-class AuthorsService{
-  create(body) {
-    throw new Error("Method not implemented.");
+import { dbContext } from "../db/DbContext";
+
+class AuthorsService {
+  getAll(query = {}) {
+    return await dbContext.Authors.find(query)
   }
-  delete(id, id) {
-    throw new Error("Method not implemented.");
-  }
-  edit(body) {
-    throw new Error("Method not implemented.");
-  }
+
   getById(id) {
-    throw new Error("Method not implemented.");
+    let author = await dbContext.Authors.findById(id)
   }
-  getAll(query) {
-    throw new Error("Method not implemented.");
+
+  create(body) {
+    return await dbContext.Posts.create(body)
   }
+
+  delete(id, id) {
+    const author = await dbContext.Posts.findOneAndRemove({ _id: id, author })
+  }
+
+
+  // edit(body) {
+  //   throw new Error("Method not implemented.");
+  // }
+
+
 
 }
 export const authorsService = new AuthorsService()

@@ -5,7 +5,9 @@ import { Comment } from "../Models/Comment.js"
 class CommentsService {
   async getComments() {
     let res = await api.get("comments")
+    console.log(res.data)
     ProxyState.comments = res.data.map(i => new Comment(i))
+    console.log(ProxyState.comments)
   }
   async addComment(newComment) {
     await api.post('comments', newComment)

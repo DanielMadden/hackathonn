@@ -1,20 +1,26 @@
 import { dbContext } from "../db/DbContext";
 
 class CommentsService {
+  async getAll(query = {}) {
+    let res = await dbContext.Comments.find(query).populate("creatorId")
+    return res.map(obj => {
+      return {
+        id: obj.id,
+        body: obj.body,
+        postId: obj.postId,
+        votes: obj.votes,
+        name: obj.creatorId.name
+      }
+    })
+  }
   async create(body) {
     return await dbContext.Comments.create(body)
   }
-  async delete(id, id) {
-    const comment = await dbContext.Comments.findOneAndRemove({ _id: id, comment })
+  async delete(commentId, id) {
+    const comment = await dbContext.Comments.findOneAndRemove({ _id: id, commentId })
   }
   async edit(body) {
     let updated = await dbContext.Comments.findOneAndUpdate({ _id: updated.id }, update, { new: true })
-  }
-  async getById(id) {
-    let comment = await dbContext.Comments.findById(id)
-  }
-  async getAll(query = {}) {
-    return await dbContext.Comments.find(query)
   }
 
 }

@@ -7,9 +7,16 @@ const Post = new Schema(
     title: { type: String, required: true },
     body: { type: String, required: true },
     votes: { type: Number, required: true },
-    author: { type: ObjectId, ref: "Author", required: true }
+    creatorId: { type: ObjectId, ref: "Account", required: true }
   },
-  { timestamps: true, toJSON: { virtuals: true } }
+  { toJSON: { virtuals: true } }
 )
+
+Post.virtual('user', {
+  localField: 'creatorId',
+  ref: 'Account',
+  foreignField: '_id',
+  justOne: true
+})
 
 export default Post

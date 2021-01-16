@@ -4,7 +4,16 @@ import { BadRequest } from "../utils/Errors";
 
 class PostsService {
   async getAll(query = {}) {
-    return await dbContext.Post.find(query).populate('author')
+    let res = await dbContext.Post.find(query).populate('creatorId')
+    return res.map(obj => {
+      return {
+        id: obj.id,
+        title: obj.title,
+        body: obj.body,
+        votes: obj.votes,
+        name: obj.creatorId.name
+      }
+    })
   }
   async create(post) {
     return await dbContext.Post.create(post)
@@ -24,10 +33,9 @@ class PostsService {
     return updatedPost
   }
 
-  async delete() {
-    const deleted = await dbContext.Post.findOneAndRemove({ _id: id, authorId: authorId })
-    if (!deleted) {
-      throw new BadRequest('You are not the creator, or this is not a valid post :(')
+  async delete(id) {
+    return {
+      Deleted: await dbContext.Post.findOneAndRemove({ _id: id })
     }
   }
 }

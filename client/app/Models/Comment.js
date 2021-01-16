@@ -3,9 +3,7 @@ export class Comment {
     this.id = data.id
     this.body = data.body
     this.votes = data.votes
-    console.log(data.postId)
     this.postId = data.postId
-    console.log(this.postId)
     this.name = data.name
   }
   get Template() {

@@ -1,4 +1,5 @@
 import { ProxyState } from "../AppState.js"
+import { api } from "../Services/AxiosService.js"
 
 export class Post {
   constructor(data) {
@@ -20,8 +21,9 @@ export class Post {
                         <i class="fas fa-chevron-down button-downvote m-1"></i>
                         <span class="amount-votes">${this.votes}</span>
                         <div class="comment-holder mr-3">
-                            <span class="amount-comments">${this.countComments()}</span>
-                            <i class="fas fa-comment button-comment m-1" onclick="app.setCommentController.setPostId('${this.id}')" ></i>
+                            <span class="amount-comments"
+                            id="amount-comments-${this.id}" ></span>
+                            <i class="fas fa-comment button-comment m-1" onclick="app.setCommentController.setPostId('${this.id}'); app.pwittyController.showComments(); app.commentsController.filterComments('${this.id}')" ></i>
                         </div>
                     </div>
                 </div>
@@ -29,6 +31,10 @@ export class Post {
   }
 
   countComments() {
+    api.get(`comments?postId=${this.id}`).then((result) => {
+      console.log(result)
+      document.getElementById(`amount-comments-${this.id}`).innerText = result.data.length
+    }, (error) => { console.error(error) })
     return ProxyState.comments.filter(comment => comment.postId == this.id).length
   }
 }

@@ -29,6 +29,6 @@ export class Post {
   }
 
   countComments() {
-    return ProxyState.comments.filter(comment => comment.postId = this.id).length
+    return ProxyState.comments.filter(comment => comment.postId == this.id).length
   }
 }

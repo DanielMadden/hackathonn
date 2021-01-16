@@ -30,6 +30,7 @@ export default class PostsController {
       title: form['title'].value,
       body: form['body'].value
     }
+    console.log(newPost)
     try {
       postsService.addPost(newPost)
     } catch (error) {

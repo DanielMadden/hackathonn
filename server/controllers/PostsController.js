@@ -6,14 +6,14 @@ export class PostsController extends BaseController {
   constructor() {
     super('api/posts')
     this.router
-    .get('',this.getAll)
-    .use(Auth0Provider.getAuthorizedUserInfo)
-    .post('', this.create)
-    .get('/:id', this.getById)
-    .put(':/id', this.edit)
-    .delete('/:id', this.delete)
+      .get('', this.getAll)
+      .use(Auth0Provider.getAuthorizedUserInfo)
+      .post('', this.create)
+      .get('/:id', this.getById)
+      .put(':/id', this.edit)
+      .delete('/:id', this.delete)
   }
-    //where do the arguments for these parameters come from, aka where is this function/method called from?
+  //where do the arguments for these parameters come from, aka where is this function/method called from?
   async getAll(req, res, next) {
     try {
       //why do we await in the controller AND in the service
@@ -53,7 +53,7 @@ export class PostsController extends BaseController {
 
   async delete(req, res, next) {
     try {
-      return res.send(await postsService.delete(req.params.id, req.userInfo.id))
+      return res.send(await postsService.delete(req.params.id))
     } catch (error) {
       next(error)
     }

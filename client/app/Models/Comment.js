@@ -1,10 +1,10 @@
 export class Comment {
   constructor(data) {
-    this.author = data.author.name
+    this.id = data.id
     this.body = data.body
     this.votes = data.votes
-    this.id = data.id
-    this.postId = data.post
+    this.postId = data.postId
+    this.author = data.name
   }
   get Template() {
     return /*html*/`

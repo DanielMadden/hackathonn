@@ -5,7 +5,9 @@ import { Post } from "../Models/Post.js"
 class PostsService {
   async getPosts() {
     let res = await api.get('posts')
+    console.log(res)
     ProxyState.posts = res.data.map(i => new Post(i))
+    console.log(ProxyState.posts)
   }
   async addPost(newPost) {
     await api.post('posts', newPost)

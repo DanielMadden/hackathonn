@@ -5,14 +5,14 @@ const ObjectId = mongoose.Schema.Types.ObjectId
 const Comment = new Schema(
   {
     body: { type: String, required: true },
-    votes: { type: Number, required: true },
+    votes: { type: Number, default: 0 },
     postId: { type: ObjectId, ref: "Post", required: true },
-    creatorId: { type: ObjectId, ref: "Account" }
+    creatorId: { type: String, ref: "Account", required: true }
   },
-  { timestamps: true, toJSON: { virtuals: true } }
+  { toJSON: { virtuals: true } }
 )
 
-Comment.virtual('user', {
+Comment.virtual('creator', {
   localField: 'creatorId',
   ref: 'Account',
   foreignField: '_id',

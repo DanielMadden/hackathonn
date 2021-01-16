@@ -16,6 +16,9 @@ export default class CommentsController {
     this.getComments()
     _drawComments()
   }
+  showProxyComments() {
+    console.log(ProxyState.comments)
+  }
   getComments() {
     try {
       commentsService.getComments()

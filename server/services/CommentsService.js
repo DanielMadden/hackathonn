@@ -13,7 +13,7 @@ class CommentsService {
   async getById(id) {
     let comment = await dbContext.Comments.findById(id)
   }
-  async getAll(query) {
+  async getAll(query = {}) {
     return await dbContext.Comments.find(query)
   }
 

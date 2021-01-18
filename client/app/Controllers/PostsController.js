@@ -4,10 +4,9 @@ import { postsService } from "../Services/PostsService.js"
 function _drawPosts() {
   let posts = ProxyState.posts
   let template = ''
-  posts.forEach(post => {
-    template += post.Template
-  })
+  posts.forEach(post => template += post.Template)
   document.getElementById("posts").innerHTML = template
+  posts.forEach(post => post.countComments())
 }
 
 export default class PostsController {

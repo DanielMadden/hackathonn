@@ -11,7 +11,8 @@ class CommentsService {
   }
   async addComment(newComment) {
     await api.post('comments', newComment)
-    this.getComments()
+    let res = await api.get("comments")
+    ProxyState.comments = res.data.map(i => new Comment(i))
   }
   async deleteComment(id) {
     await api.delete("comments" + id)

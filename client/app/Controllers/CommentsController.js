@@ -1,10 +1,10 @@
 import { ProxyState } from "../AppState.js"
 import { commentsService } from "../Services/CommentsService.js"
 
-function _drawComments() {
-  let comments = ProxyState.comments
+function _drawComments(postId) {
   let template = ''
-  comments.forEach(comment => {
+  console.log(ProxyState.comments)
+  ProxyState.comments.filter(comment => comment.postId == postId).forEach(comment => {
     template += comment.Template
   })
   document.getElementById("comments").innerHTML = template
@@ -12,12 +12,8 @@ function _drawComments() {
 
 export default class CommentsController {
   constructor() {
-    ProxyState.on("comments", _drawComments)
+    // ProxyState.on("comments", _drawComments)
     this.getComments()
-    _drawComments()
-  }
-  showProxyComments() {
-    console.log(ProxyState.comments)
   }
   getComments() {
     try {
@@ -26,15 +22,16 @@ export default class CommentsController {
       console.error(error)
     }
   }
-  addComment(id) {
+  async addComment(postId) {
     window.event.preventDefault()
     let form = window.event.target
     let newComment = {
       body: form['body'].value,
-      postId: id
+      postId: postId
     }
     try {
-      commentsService.addComment(newComment)
+      await commentsService.addComment(newComment)
+      _drawComments(postId)
     } catch (error) {
       console.error(error)
     }
@@ -52,5 +49,8 @@ export default class CommentsController {
     } catch (error) {
       console.error(error)
     }
+  }
+  filterComments(postId) {
+    _drawComments(postId)
   }
 }
